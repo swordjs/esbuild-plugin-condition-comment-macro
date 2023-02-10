@@ -1,0 +1,47 @@
+{
+  "name": "esbuild-plugin-condition-comment-macro",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm unbuild",
+    "dev": "pnpm unbuild test/fixture",
+    "lint": "eslint --ext .ts,.js . && prettier -c src test",
+    "prepack": "pnpm unbuild",
+    "release": "vitest run && changelogen --release && git push --follow-tags && npm publish",
+    "stub": "pnpm unbuild --stub",
+    "test": "pnpm lint && vitest run --coverage",
+    "unbuild": "jiti ./src/cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swordjs/esbuild-plugin-condition-comment-macro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swordjs/esbuild-plugin-condition-comment-macro/issues"
+  },
+  "homepage": "https://github.com/swordjs/esbuild-plugin-condition-comment-macro#readme",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "esbuild": "^0.17.7",
+    "eslint": "^8.32.0",
+    "eslint-config-unjs": "^0.1.0",
+    "prettier": "^2.8.3",
+    "unbuild": "^1.1.1",
+    "vitest": "^0.28.4"
+  }
+}
