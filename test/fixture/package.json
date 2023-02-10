@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "build": "node build.js"
+    },
+    "devDependencies": {
+        "esbuild-plugin-condition-comment-macro": "file:../..",
+        "esbuild": "^0.17.7"
+    }
+}
