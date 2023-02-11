@@ -19,7 +19,7 @@ export const ConditionCommentMacroPlugin = (options: {
                 const source = readFileSync(args.path, 'utf8');
                 // The syntax of conditional compilation is commented
                 const supportMarco = Object.keys(options.startMacro);
-                // 根据前缀(比如@), 和开始macro(比如if), 结束macro(比如endif)来匹配, 动态构造一个正则表达式
+                // Dynamically construct a regular expression based on a prefix (e.g. @), and a start macro (e.g. if), and an end macro (e.g. endif) to match
                 const startReg = `//\\s*${options.prefix}\\s*(${supportMarco.join('|')})\\s*(\\w+)\\s*([\\S\\s]*?)`;
                 const endReg = `//\\s*${options.prefix}\\s*(${options.endMacro})`;
                 const reg = new RegExp(`${startReg}${endReg}`, 'g');
